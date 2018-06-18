@@ -72,6 +72,10 @@ app.get('/hello', function (req, res) {
     return res.send('Hello CodeLab');
 });
 
+app.get('*', function (req, res) {
+    res.sendFile(_path2.default.resolve(__dirname, './../public/index.html'));
+});
+
 app.listen(port, function () {
     console.log('Express is listening on port', port);
 });

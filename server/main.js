@@ -35,14 +35,24 @@ app.use(session({
 
 app.use('/api', api);
 
+app.get('*', (req, res, next) => {
+    const regExp = /bundle.js$/;
+
+    if (!regExp.test(req.url)) {
+      res.sendFile(path.resolve(__dirname, './../public/index.html'));
+    } else {
+      next();
+    }
+});
+
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
 
-app.get('/hello', (req, res) => {
-    return res.send('Hello CodeLab');
-});
+// app.get('/hello', (req, res) => {
+//     return res.send('Hello CodeLab');
+// });
 
 app.listen(port, () => {
     console.log('Express is listening on port', port);
