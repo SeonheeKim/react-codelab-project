@@ -1,42 +1,43 @@
 import React from 'react';
 
 class Header extends React.Component {
-    render() {
+  render() {
 
-        const loginButton = (
+      const loginButton = (
           <li>
-            <a>
-              <i className="material-icons">vpn_key</i>
-            </a>
+              <a>
+                  <i className="material-icons">vpn_key</i>
+              </a>
           </li>
-        );
+      );
 
-        const logoutButton = (
+      const logoutButton = (
           <li>
-            <a>
-              <i className="material-icons">lock_open</i>
-            </a>
+              <a>
+                  <i className="material-icons">lock_open</i>
+              </a>
           </li>
-        );
+      );
 
-          return (
-            <nav>
-                <div className="nav-wrapper blue darken-1">
-                    <Link to="/" className="brand-logo center">MEMOPAD</Link>
 
-                    <ul>
-                        <li><a><i className="material-icons">search</i></a></li>
-                    </ul>
+      return (
+          <nav>
+              <div className="nav-wrapper blue darken-1">
+                  <a className="brand-logo center">MEMOPAD</a>
 
-                    <div className="right">
-                        <ul>
-                            { this.props.isLoggedIn ? logoutButton : loginButton }
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        );
-    }
+                  <ul>
+                      <li><a><i className="material-icons">search</i></a></li>
+                  </ul>
+
+                  <div className="right">
+                      <ul>
+                          { this.props.isLoggedIn ? logoutButton : loginButton }
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+      );
+  }
 }
 
 Header.propTypes = {
